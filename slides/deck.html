@@ -502,7 +502,7 @@ const ResumeChecklist = () => (
       <div style={{flex:1,display:'flex',flexDirection:'column',gap:14}}>
         <div className="banner">파일명 예시</div>
         <div className="card mono" style={{padding:'18px 20px',fontSize:17,color:'var(--ink)'}}>2025-07-01_김재훈_이력서_v1.pdf</div>
-        <Callout style={{marginTop:'auto'}}>이력서는 <b>사실의 기록</b>, 자기소개서는 <b>서사</b>, 포트폴리오는 <b>증거</b> — 세 문서의 역할을 섞지 마세요.</Callout>
+        <Callout style={{marginTop:'auto'}}>이력서는 <b>사실의 기록</b>, 자기소개서는 <b>서사</b>, 포트폴리오는 <b>증거</b> — 한 파일로 묶더라도 <b>장을 나눠</b>, 역할을 섞지 마세요.</Callout>
       </div>
     </div>
   </div>
@@ -722,8 +722,8 @@ const ExRetro = () => (
 
 // 14 레이아웃 3원칙 + 8유형
 const Layouts = () => {
-  const types=[['표지','첫인상'],['목차','전체 지도'],['개요','What/Why'],['다이어그램 중심 ★','구조 시각화'],
-    ['코드+설명 2단','구현 증명'],['비교 ★','판단 근거'],['타임라인','순서·흐름'],['회고','정리·전망']];
+  const types=[['표지','첫인상','덱: 표지'],['목차','전체 지도','덱: 목차 · 장 표지'],['개요','What/Why','덱: 개요'],['다이어그램 중심 ★','구조 시각화','덱: 그림+번호 카드 · 큰 그림'],
+    ['코드+설명 2단','구현 증명','덱: 코드+설명 (20줄 안팎)'],['비교 ★','판단 근거','덱: 큰 표 (비교 · As-Is/To-Be)'],['타임라인','순서·흐름','덱: 그림+번호 카드'],['회고','정리·전망','덱: 회고 · 맺음']];
   return (
     <div className="slide" style={{padding:'52px 72px',display:'flex',flexDirection:'column'}}>
       <Head eyebrow="Part 3 · 레이아웃" rlabel="3원칙 + 8유형"/>
@@ -731,19 +731,21 @@ const Layouts = () => {
         {['한 화면 한 메시지','정렬과 여백','위계(Hierarchy)'].map(p=><span key={p} className="pill">{p}</span>)}
       </div>
       <div style={{display:'grid',gridTemplateColumns:'repeat(4,1fr)',gap:14,marginTop:24,flex:1}}>
-        {types.map(([t,d])=>{
+        {types.map(([t,d,s])=>{
           const star=t.includes('★');
           return (
             <div key={t} className="card" style={{padding:'18px 18px',...(star?{border:'2px solid var(--indigo)',background:'var(--indigo-soft)'}:{})}}>
               <div style={{fontSize:19,fontWeight:800,color:star?'var(--indigo-deep)':'var(--ink)'}}>{t}</div>
               <div style={{marginTop:8,fontSize:15,color:'var(--muted)'}}>{d}</div>
+              <div style={{marginTop:8,fontSize:13,color:'var(--indigo-deep)'}}>{s}</div>
             </div>
           );
         })}
       </div>
       <div style={{marginTop:20,fontSize:18,color:'var(--muted)'}}>
         ★ = 여러분의 <b style={{color:'var(--indigo)'}}>다이어그램이 가장 잘 사는</b> 레이아웃 ·
-        실물 예시는 <span className="chip">React 쇼케이스</span>에서.
+        실물 예시는 <span className="chip">React 쇼케이스</span>에서 ·{' '}
+        <b>발표 덱</b>: 8유형 + 화면 모음·문제 해결, <b>장면마다 시각 자료 1~2개</b>
       </div>
     </div>
   );
@@ -888,7 +890,7 @@ const FeatureConcept = () => (
     title="③ 핵심 기능: 어떻게 동작·사용하나" pill="증거와 사용법"
     concept={<>
       <div className="lead">구조가 '설계도'였다면 여기는 <b>시공 매뉴얼 + 사용법</b>. 독자가 이 섹션만 읽고도 기능을 즉시 쓰거나 테스트할 수 있어야 합니다.</div>
-      <div className="kv"><div className="k">핵심 동작</div><div className="v">1000줄 다 보여주면 최악. "아하!"가 오는 <b>핵심 50줄</b>만 선별</div></div>
+      <div className="kv"><div className="k">핵심 동작</div><div className="v">1000줄 다 보여주면 최악. "아하!"가 오는 <b>핵심 50줄</b>만 선별 (발표 덱 한 장면은 20줄 안팎)</div></div>
       <div className="kv"><div className="k">사용법(API)</div><div className="v">어떤 함수를 호출하고, 무엇을 입력하면 무엇이 나오는지</div></div>
     </>}
     metaphor={{title:'에어프라이어 설명서', body:<>50페이지 <b>회로도 전체</b>(코드 500줄)도, "전원 누르면 됨"(설명 부족)도 아님. <b>빠른 사용법 + 핵심 동작 원리</b>가 좋은 설명서.</>}}
