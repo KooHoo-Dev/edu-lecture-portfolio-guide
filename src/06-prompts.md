@@ -199,13 +199,14 @@ React는 CDN(unpkg)으로 불러오고, 스타일은 Tailwind CDN을 써줘.
 
 Part 4의 5종 다이어그램을 생성하는 프롬프트입니다. 결과로 **Mermaid 코드**가 나오며,
 GitHub md에 붙이거나 mermaid.live에서 이미지로 변환하세요(Part 5-5).
+종류가 헷갈리면 **Part 4-8 "AI에게 종류부터 고르게 하기"** 프롬프트를 먼저 쓰세요.
 
 > **공통 팁**: 프롬프트 끝에 *"Mermaid 코드 블록으로만 답하고, 설명은 빼줘"* 를 붙이면
 > 바로 복사해 쓸 수 있는 코드만 받습니다.
 
 #### C-① 클래스 다이어그램
 
-> **이럴 때**: 클래스들의 구조·관계(상속·구현·의존).
+> **이럴 때**: 상속·구현 구조, 또는 핵심 협력 관계 — 한 그림에 하나만.
 
 ```text
 다음 관계를 Mermaid 클래스 다이어그램(classDiagram)으로 그려줘.
@@ -217,7 +218,7 @@ GitHub md에 붙이거나 mermaid.live에서 이미지로 변환하세요(Part 5
 
 #### C-② 시퀀스 다이어그램
 
-> **이럴 때**: 시간 순서대로 객체들이 주고받는 메시지.
+> **이럴 때**: 둘 이상의 클래스·객체가 차례로 부르는 호출 흐름 (한 주체 안의 분기는 C-④).
 
 ```text
 다음 처리 순서를 Mermaid 시퀀스 다이어그램(sequenceDiagram)으로 그려줘.
@@ -232,40 +233,42 @@ GitHub md에 붙이거나 mermaid.live에서 이미지로 변환하세요(Part 5
 
 #### C-③ 상태 다이어그램 (FSM)
 
-> **이럴 때**: 상태와 전이 조건 (캐릭터 AI, 게임 페이즈, 제작 진행 등).
+> **이럴 때**: 코드에 상태 `enum`과 그 값을 바꾸는 전이가 있을 때 (몬스터·캐릭터 AI, 게임 페이즈, 턴 진행 등).
+> 크래프팅처럼 상태 값이 없는 한 메서드의 검사 순서라면 C-④ 플로우차트를 쓰세요.
 
 ```text
 다음 상태 흐름을 Mermaid 상태 다이어그램(stateDiagram-v2)으로 그려줘.
-상태: [Idle, Validating, Crafting, Succeeded, Failed]
-전이:
-- Idle → Validating ([RequestCraft])
-- Validating → Failed ([재료 부족]) / → Crafting ([재료 충분])
-- Crafting → Succeeded ([확률 성공]) / → Failed ([확률 실패])
-- Succeeded·Failed → Idle ([결과 전파])
-시작은 [*] --> Idle로. Mermaid 코드 블록으로만 답해줘.
+상태: [MonsterState enum의 Idle, Patrol, Chase, Attack, Dead]
+전이 (코드에서 ChangeState를 부르는 조건마다 하나씩):
+- Idle → Patrol ([대기 시간 끝])
+- Patrol → Chase ([플레이어 발견])
+- Chase → Attack ([공격 사거리 안]) / → Patrol ([플레이어 놓침])
+- Attack → Chase ([사거리 밖])
+- 살아 있는 상태 어디서든 → Dead ([HP 0]) — 살아 있는 상태들을 묶어서 한 번만 그려줘
+방향은 LR, 시작은 [*]로. Mermaid 코드 블록으로만 답해줘.
 ```
 
 #### C-④ 플로우차트
 
-> **이럴 때**: if/else 분기가 여러 겹인 로직의 흐름.
+> **이럴 때**: 한 메서드·한 규칙 안의 if/else·검사 순서, 또는 플레이어 행동 흐름.
 
 ```text
 다음 함수의 분기 로직을 Mermaid 플로우차트(flowchart TD)로 그려줘.
 [RequestCraft] 함수:
 - [레시피 존재?] 아니오 → 실패 / 예 → 다음
 - [재료 충분?] 아니오 → 실패 / 예 → 다음
-- [확률 판정?] 성공 → 재료 100% 소비 → 결과물 추가 → 성공 이벤트
-              실패 → 재료 50% 소비 → 실패 이벤트
-- 모든 경로는 [Idle 복귀]로 수렴
+- [확률 판정?] 성공 → 재료 100% 소비 → 결과물 추가
+              실패 → 재료 50% 소비
+- 모든 경로는 [결과 이벤트 발행(Publish → OnCraftCompleted)]으로 수렴
 판단은 마름모{}, 처리는 사각형[]으로. Mermaid 코드 블록으로만 답해줘.
 ```
 
 #### C-⑤ ER 다이어그램
 
-> **이럴 때**: 데이터 저장 구조(테이블·관계). CSV·DB·구글시트로 관리하는 데이터.
+> **이럴 때**: 데이터가 어떤 필드로 이루어지고 서로 어떻게 이어지는가 (DB·CSV·ScriptableObject·세이브 데이터 — 저장 위치와 상관없음).
 
 ```text
-다음 저장 데이터 구조를 Mermaid ER 다이어그램(erDiagram)으로 그려줘.
+다음 데이터 구조를 Mermaid ER 다이어그램(erDiagram)으로 그려줘.
 테이블:
 - [ITEM] (item_id PK, name, category)
 - [RECIPE] (recipe_id PK, result_item_id FK, success_rate)

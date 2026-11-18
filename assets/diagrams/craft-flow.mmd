@@ -1,0 +1,13 @@
+flowchart TD
+    A(["RequestCraft(recipeId)"]) --> B{레시피 존재?}
+    B -->|No| F1[실패: 레시피 없음]
+    B -->|Yes| C{재료 충분?}
+    C -->|No| F2[실패: 재료 부족]
+    C -->|Yes| D{확률 판정<br/>roll < SuccessRate?}
+    D -->|Yes| E1[재료 100% 소비]
+    E1 --> E2[결과물 추가]
+    D -->|No| G1[재료 50% 소비]
+    F1 --> Z(["결과 이벤트 발행<br/>Publish → OnCraftCompleted"])
+    F2 --> Z
+    E2 --> Z
+    G1 --> Z

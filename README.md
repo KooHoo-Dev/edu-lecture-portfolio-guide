@@ -46,14 +46,14 @@ portfolio-guide-v2/
 
 ## 다이어그램
 
-관통 예제인 **크래프팅 시스템**을 5종 다이어그램으로 표현한다.
+관통 예제인 **크래프팅 시스템**을 4종 다이어그램으로 표현한다. 상태 다이어그램은 크래프팅에 상태 값이 없어 **몬스터 AI** 예를 쓴다.
 
 | 다이어그램 | 답하는 질문 | 파일 |
 |---|---|---|
 | 클래스 | 무엇으로 이루어졌나 (런타임 구조) | `assets/diagrams/class.*` |
 | 시퀀스 | 시간 순서로 어떻게 상호작용하나 | `assets/diagrams/sequence.*` |
-| 상태(FSM) | 어떤 상태를 오가나 | `assets/diagrams/state.*` |
-| 플로우차트 | 어떤 갈림길을 지나나 (로직) | `assets/diagrams/flow.*` |
+| 상태(FSM) | 어떤 상태를 오가나 (몬스터 AI 예) | `assets/diagrams/monster-state.*` |
+| 플로우차트 | 어떤 갈림길을 지나나 (로직) | `assets/diagrams/craft-flow.*` |
 | ER | 데이터가 어떻게 저장되나 (저장 구조) | `assets/diagrams/er.*` |
 
 ## 사용법

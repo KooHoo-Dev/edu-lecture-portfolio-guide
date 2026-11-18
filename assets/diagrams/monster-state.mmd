@@ -1,0 +1,13 @@
+stateDiagram-v2
+    direction LR
+    [*] --> Alive
+    state "살아 있음" as Alive {
+        [*] --> Idle
+        Idle --> Patrol : 대기 시간 끝
+        Patrol --> Chase : 플레이어 발견
+        Chase --> Attack : 공격 사거리 안
+        Attack --> Chase : 사거리 밖
+        Chase --> Patrol : 플레이어 놓침
+    }
+    Alive --> Dead : HP 0
+    Dead --> [*]

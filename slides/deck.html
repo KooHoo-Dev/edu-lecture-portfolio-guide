@@ -757,9 +757,9 @@ const DiagramSummary = () => (
     <Head eyebrow="Part 4 · Mermaid" rlabel="5종, 하나의 시스템"/>
     <div className="title-xl" style={{marginTop:22}}>무엇을 설명하느냐에 맞춰 <span style={{color:'var(--indigo)'}}>고른다</span></div>
     <div style={{marginTop:24,flex:1}}>
-      {[['클래스','무엇으로 이루어졌나 (런타임 구조)'],['시퀀스','시간 순서로 어떻게 상호작용하나'],
-        ['상태(FSM)','어떤 상태를 오가나'],['플로우차트','어떤 갈림길을 지나나 (로직)'],
-        ['ER','데이터가 어떻게 저장되나 (저장 구조)']].map(([a,b],i)=>(
+      {[['클래스','상속·구현, 또는 협력 관계 (한 그림에 하나)'],['시퀀스','둘 이상이 차례로 부르는 호출 흐름'],
+        ['상태(FSM)','상태 enum과 그 전이'],['플로우차트','한 메서드·규칙 안의 갈림길'],
+        ['ER','데이터의 필드와 연결 (저장 위치 무관)']].map(([a,b],i)=>(
         <div key={a} style={{display:'flex',gap:24,alignItems:'center',padding:'14px 0',borderBottom:'1px solid var(--line)'}}>
           <div style={{width:150,flex:'0 0 auto'}}><span className="banner" style={{fontSize:16}}>{a}</span></div>
           <div style={{fontSize:19,color:'var(--ink)'}}>{b}</div>
@@ -987,11 +987,11 @@ const WhichDiagram = () => (
     </div>
     <div className="concept lead" style={{marginTop:12}}>같은 시스템도 <b>5가지 각도</b>로 볼 수 있습니다. 다 그리지 말고, <b>내가 설명하려는 질문</b>에 맞는 1~2개를 고르세요.</div>
     <div style={{marginTop:16,flex:1,display:'flex',flexDirection:'column',justifyContent:'center',gap:12}}>
-      {[['"무엇으로 이루어졌나?" — 런타임 구조','클래스'],
-        ['"시간 순서로 어떻게 상호작용하나?"','시퀀스'],
+      {[['"무엇을 물려받고 누구와 협력하나?"','클래스'],
+        ['"누가 누구를 차례로 부르나?"','시퀀스'],
         ['"어떤 상태를 오가나?"','상태(FSM)'],
         ['"어떤 갈림길을 지나나?" — 로직','플로우차트'],
-        ['"데이터가 어떻게 저장되나?" — 저장 구조','ER']].map(([q,t])=>(
+        ['"데이터가 어떤 필드로 이어지나?"','ER']].map(([q,t])=>(
         <div key={t} style={{display:'flex',alignItems:'center',gap:16}}>
           <div style={{flex:1,background:'#F7F8FD',border:'1px solid var(--line)',borderRadius:10,padding:'12px 18px',fontSize:17,color:'var(--ink)',fontWeight:600}}>{q}</div>
           <span className="arrow">→</span>
@@ -1180,15 +1180,15 @@ const SLIDES = [
   {c:()=><DiagramNarrative eyebrow="Part 4 · Mermaid" rlabel="시퀀스 다이어그램" title="시퀀스 다이어그램" label="성공 흐름" img="images/sequence.png"
       steps={[{h:'시간 순서의 상호작용',items:['UI → Manager → Inventory 호출 순서','검증 → 확률판정 → 소비 → 추가']},
               {h:'이벤트는 점선',items:['Manager는 UI를 <b>직접 호출하지 않음</b>','OnCraftCompleted로 되돌려줌']}]}/>, sec:'Part 4'},
-  {c:()=><DiagramNarrative eyebrow="Part 4 · Mermaid" rlabel="상태(FSM) 다이어그램" title="상태(FSM) 다이어그램" label="제작 전이" img="images/state.png" imgStyle={{maxHeight:'420px'}}
-      steps={[{h:'어떤 상태를 오가나',items:['Idle → Validating → Crafting','성공/실패로 <b>분기</b> 후 Idle 복귀']},
-              {h:'확률 규칙의 시각화',items:['Crafting에서 Roll로 Succeeded/Failed','반복 제작 가능 구조']}]}/>, sec:'Part 4'},
+  {c:()=><DiagramNarrative eyebrow="Part 4 · Mermaid" rlabel="상태(FSM) 다이어그램" title="상태(FSM) 다이어그램" label="몬스터 AI" img="images/monster-state.png" imgStyle={{maxHeight:'420px'}}
+      steps={[{h:'어떤 상태를 오가나',items:['Idle → Patrol → Chase → Attack','<b>되돌아가는</b> 전이: Attack → Chase, Chase → Patrol']},
+              {h:'코드의 신호',items:['MonsterState <b>enum</b>과 그 값을 바꾸는 ChangeState','크래프팅은 상태 값이 없어 <b>플로우차트</b>로']}]}/>, sec:'Part 4'},
   {c:()=>(
     <div className="slide" style={{padding:'44px 60px',display:'flex',flexDirection:'column'}}>
       <Head eyebrow="Part 4 · Mermaid" rlabel="플로우차트 · ER"/>
       <div className="title-lg" style={{fontSize:34,margin:'16px 0 12px'}}>플로우차트 · ER</div>
       <div style={{display:'flex',gap:24,flex:1,minHeight:0}}>
-        {[['images/flow.png','로직의 갈림길 — RequestCraft 분기'],['images/er.png','데이터 저장 구조']].map(([src,cap])=>(
+        {[['images/craft-flow.png','로직의 갈림길 — RequestCraft 분기'],['images/er.png','데이터의 필드와 연결']].map(([src,cap])=>(
           <div key={src} style={{flex:1,display:'flex',flexDirection:'column',minWidth:0,minHeight:0}}>
             <div className="card" style={{flex:1,minHeight:0,display:'flex',alignItems:'center',justifyContent:'center',padding:18,background:'#fff'}}>
               <img src={src} style={{maxWidth:'100%',maxHeight:'100%',objectFit:'contain'}}/>
