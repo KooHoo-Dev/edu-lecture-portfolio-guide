@@ -220,7 +220,7 @@ marp presentation.md --theme theme.css --no-stdin --pdf --allow-local-files -o p
 - [x] **GitHub Pages 배포 설정** — **허브 랜딩 방식.** 루트 `index.html`(허브, 페리윙클) →
       01 가이드 문서(`slides/deck.html`) · 02 레이아웃 카탈로그(`showcase/index.html`). (가이드 본문 섹션은 제거됨.)
       `.github/workflows/deploy-pages.yml`이 main push 시 **레포 전체를 그대로 게시**(재빌드 없음).
-      배포 URL: `https://koohoo-dev.github.io/portfolio-guide/`. Pages Source="GitHub Actions" 설정 완료·배포 확인됨.
+      배포 URL: `https://koohoo-dev.github.io/edu-lecture-portfolio-guide/`(리포 이름을 `edu-lecture-portfolio-guide`로 바꾸면서 주소도 바뀜). Pages Source="GitHub Actions" 설정 완료·배포 확인됨.
 - [x] **경로 최종 점검** — `src/*.md`의 `../assets/diagrams/*.png`는 GitHub 렌더링 경로와 일치.
       슬라이드·쇼케이스는 각자 `images/*.png` 상대참조로 정상. 확인 완료.
 - [x] **Part 3 ↔ 쇼케이스 상호 참조** — `03-presentation-layouts.md` 3-2절에 쇼케이스 링크 추가.

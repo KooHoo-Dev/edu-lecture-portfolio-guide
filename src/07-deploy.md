@@ -21,7 +21,7 @@
 레포지토리의 **정적 파일**(HTML·CSS·JS·이미지)을 웹 주소로 게시해 주는 기능입니다.
 
 - 주소 형식: `https://<GitHub아이디>.github.io/<레포이름>/`
-  - 예) 이 가이드는 `https://koohoo-dev.github.io/portfolio-guide/` 로 배포돼 있습니다.
+  - 예) 이 가이드는 `https://koohoo-dev.github.io/edu-lecture-portfolio-guide/` 로 배포돼 있습니다.
   - 레포 이름을 아예 `<아이디>.github.io`로 만들면 주소가 `아이디.github.io`(레포명 생략)로 짧아집니다.
 - ⚠ **무료 플랜은 공개(public) 레포에서만** Pages가 동작합니다. (비공개는 유료 플랜 필요)
 - ⚠ Pages는 `.md`를 **원문(raw)으로만** 서빙합니다 — 렌더가 필요하면 아래 7-5를 참고하세요.
@@ -123,5 +123,5 @@ jobs:
 - 다시 강조 — **기업 보안상 외부 링크가 막힌 곳**이 있으니, 링크와 함께 **PDF 사본**을 꼭 함께 준비하세요.
   기본은 **포트폴리오 페이지 PDF**, 슬라이드·상세 문서 PDF는 요청받을 때.
 
-> 이 가이드도 그래서 github.io에 올라가 있습니다 — `koohoo-dev.github.io/portfolio-guide`.
+> 이 가이드도 그래서 github.io에 올라가 있습니다 — `koohoo-dev.github.io/edu-lecture-portfolio-guide`.
 > 여러분의 포트폴리오도 링크 하나로 "지금 바로" 보여줄 수 있게 만들어 두세요.
