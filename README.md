@@ -12,7 +12,7 @@
 |---|---|---|
 | 0 | 오리엔테이션 | [00-orientation](src/00-orientation.md) |
 | 1 | 취업 문서 (이력서·자소서·포트폴리오) | [01-job-documents](src/01-job-documents.md) |
-| 2 | 기술 문서 5단 구조 | [02-tech-documents](src/02-tech-documents.md) |
+| 2 | 프로젝트 문서 5단 구조 (뼈대 + 선택 모듈) | [02-tech-documents](src/02-tech-documents.md) |
 | 3 | 프레젠테이션 레이아웃 8종 | [03-presentation-layouts](src/03-presentation-layouts.md) |
 | 4 | Mermaid 다이어그램 5종 | [04-mermaid-diagrams](src/04-mermaid-diagrams.md) |
 | 5 | AI 활용 워크플로우 | [05-ai-workflow](src/05-ai-workflow.md) |
@@ -26,9 +26,9 @@
 - **읽기용 가이드** — `src/`의 `.md` 문서. GitHub에서 Mermaid가 네이티브 렌더링된다.
   배포 사이트에서는 **`guide.html`(온사이트 리더)** 로 Part 0~7을 바로 읽을 수 있다(marked + mermaid + hljs).
 - **발표·배포용**
-  - **발표 덱 (강의용)** — `slides/deck.html` (단일 HTML + React CDN, 방향키로 넘기는 인터랙티브 덱)
+  - **강의 슬라이드** — `slides/deck.html` (단일 HTML + React CDN, 방향키로 넘기는 인터랙티브 슬라이드)
   - **레이아웃 패턴 카탈로그** — `showcase/index.html` (문서 레이아웃 패턴 13종 · 라이브 Mermaid · 복붙 프롬프트)
-  - **(백업) Marp 발표 덱** — `slides/presentation.md` → HTML/PDF (구버전, 참고용 보관)
+  - **(백업) Marp 슬라이드** — `slides/presentation.md` → HTML/PDF (구버전, 참고용 보관)
 
 ## 폴더 구조
 
@@ -38,7 +38,7 @@ portfolio-guide-v2/
 ├── guide.html           # 온사이트 리더 (src/*.md를 브라우저에서 렌더)
 ├── src/                 # Part 0~7 가이드 본문 (Markdown)
 ├── assets/diagrams/     # Mermaid 다이어그램 (PNG + mmd 소스)
-├── slides/              # 발표 덱: deck.html(현행 React) + Marp 백업
+├── slides/              # 강의 슬라이드: deck.html(현행 React) + Marp 백업
 ├── showcase/            # 문서 레이아웃 패턴 카탈로그 (단일 HTML, 라이브 Mermaid)
 ├── CLAUDE.md            # Claude Code용 프로젝트 컨텍스트
 └── README.md
@@ -61,11 +61,11 @@ portfolio-guide-v2/
 **가이드 읽기** — `src/`의 `.md` 파일을 GitHub에서 순서대로 읽거나, 배포 사이트의 **`guide.html`**
 (허브 → "가이드 본문")에서 Part 0~7을 브라우저로 바로 읽으면 된다(다이어그램 실시간 렌더).
 
-**발표 덱 (강의용)** — `slides/deck.html`을 브라우저로 열면 된다(CDN 방식, 빌드 불필요). ← → 로 이동.
+**강의 슬라이드** — `slides/deck.html`을 브라우저로 열면 된다(CDN 방식, 빌드 불필요). ← → 로 이동.
 
 **레이아웃 패턴 카탈로그** — `showcase/index.html`을 브라우저로 열면 된다(빌드 불필요). 다이어그램은 Mermaid로 라이브 렌더된다.
 
-**(백업) Marp 덱 빌드** (Marp 필요, 구버전 참고용)
+**(백업) Marp 슬라이드 빌드** (Marp 필요, 구버전 참고용)
 ```bash
 cd slides
 marp presentation.md --theme theme.css --no-stdin -o presentation.html --html
@@ -75,7 +75,7 @@ marp presentation.md --theme theme.css --no-stdin --pdf --allow-local-files -o p
 ## 크레딧
 
 - 저자: 김재훈 (Jay / KooHoo)
-- 문서 형식: Markdown · 다이어그램: Mermaid · 발표 덱·쇼케이스: React (구 발표 Marp는 백업)
+- 문서 형식: Markdown · 다이어그램: Mermaid · 강의 슬라이드·쇼케이스: React (구 Marp 슬라이드는 백업)
 
 ---
 

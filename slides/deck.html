@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>유니티 개발자 취업·기술 문서 작성 가이드 v2 · 발표 덱</title>
+<title>유니티 개발자 취업·기술 문서 작성 가이드 v2 · 슬라이드</title>
 <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -320,7 +320,7 @@ const Cover = () => (
 
 // 01 목차
 const Contents = () => {
-  const items=[['1','취업 문서','이력서·자소서·포트폴리오'],['2','기술 문서','개요→구조→기능→선택→회고'],
+  const items=[['1','취업 문서','이력서·자소서·포트폴리오'],['2','프로젝트 문서','개요→구조·기능·선택→AI 협업→회고'],
     ['3','레이아웃','정보를 잘 전달하는 화면'],['4','Mermaid','코드로 그리는 다이어그램'],
     ['5','AI 워크플로우','챗봇으로 문서 가속'],['6','프롬프트','복사해 쓰는 한글 프롬프트']];
   return (
@@ -367,7 +367,7 @@ const Divider = ({part,title,agenda}) => (
 
 // 03 오리엔테이션 — 6파트 + 두 산출물
 const Orientation = () => {
-  const parts=[['1','취업 문서'],['2','기술 문서'],['3','레이아웃'],['4','Mermaid'],['5','AI 워크플로우'],['6','프롬프트']];
+  const parts=[['1','취업 문서'],['2','프로젝트 문서'],['3','레이아웃'],['4','Mermaid'],['5','AI 워크플로우'],['6','프롬프트']];
   return (
     <div className="slide" style={{padding:'52px 72px',display:'flex',flexDirection:'column'}}>
       <Head eyebrow="Part 0 · Orientation" rlabel="이 가이드가 다루는 것"/>
@@ -391,7 +391,7 @@ const Orientation = () => {
           </div>
           <div style={{textAlign:'center',color:'var(--indigo)',fontWeight:800}}>↓ 파생</div>
           <div className="card" style={{padding:'18px 20px'}}>
-            <div className="chip">발표 덱 · React 쇼케이스</div>
+            <div className="chip">슬라이드 · React 쇼케이스</div>
             <div style={{marginTop:10,color:'var(--muted)',fontSize:17}}>슬라이드 / 레이아웃 실물 → HTML 배포</div>
           </div>
           <div style={{background:'var(--indigo-soft)',borderRadius:12,padding:'14px 18px',fontSize:17,color:'var(--indigo-deep)',fontWeight:600}}>
@@ -410,7 +410,7 @@ const LearnPath = () => (
     <Head eyebrow="Part 0 · Orientation" rlabel="어디부터 볼까 — 학습 경로"/>
     <div className="title-xl" style={{marginTop:22}}>내 상황에 맞는 <span style={{color:'var(--indigo)'}}>순서</span>로 보세요</div>
     <div style={{display:'grid',gridTemplateColumns:'1fr 1fr 1fr',gap:18,marginTop:30,flex:1}}>
-      {[['당장 취업 준비','지원이 코앞이라면','Part 1 → Part 2 → Part 3','취업 문서부터 갖추고, 기술 문서·레이아웃으로 완성도를 올립니다.'],
+      {[['당장 취업 준비','지원이 코앞이라면','Part 1 → Part 2 → Part 3','취업 문서부터 갖추고, 프로젝트 문서·레이아웃으로 완성도를 올립니다.'],
         ['문서가 안 읽힌다','내용은 있는데 전달이 약하다면','Part 2 → Part 3 → Part 4','5단 구조로 다시 짜고, 레이아웃·다이어그램으로 "보이게" 만듭니다.'],
         ['속도를 높이고 싶다','반복 작업을 줄이고 싶다면','Part 5 → Part 6 → Part 4','AI 워크플로우와 프롬프트로 초안을 빠르게, 다이어그램까지 자동화.']].map(([t,cond,path,desc],i)=>(
         <div key={i} className="card" style={{padding:'24px 24px',display:'flex',flexDirection:'column'}}>
@@ -508,13 +508,13 @@ const ResumeChecklist = () => (
   </div>
 );
 
-// 07 기술문서 5단 구조 (개요형 · pill flow + chips)
+// 07 프로젝트 문서 5단 구조 (개요형 · pill flow + chips)
 const FiveStruct = () => (
   <div className="slide" style={{padding:'52px 72px',display:'flex',flexDirection:'column'}}>
-    <Head eyebrow="Part 2 · 기술 문서" rlabel="5단 구조"/>
-    <div className="title-xl" style={{marginTop:24}}>기술 문서의 <span style={{color:'var(--indigo)'}}>5단 구조</span></div>
+    <Head eyebrow="Part 2 · 프로젝트 문서" rlabel="5단 구조"/>
+    <div className="title-xl" style={{marginTop:24}}>프로젝트 문서의 <span style={{color:'var(--indigo)'}}>5단 구조</span></div>
     <div style={{display:'flex',alignItems:'center',gap:12,margin:'26px 0 4px',flexWrap:'wrap'}}>
-      {['개요','시스템 구조','핵심 기능','고민과 선택','결과·회고'].map((s,i)=>(
+      {['개요','시스템 구조','핵심 기능','고민과 선택','결론·회고'].map((s,i)=>(
         <React.Fragment key={s}>
           <span className="banner">{i+1}. {s}</span>
           {i<4 && <span className="arrow">→</span>}
@@ -523,7 +523,7 @@ const FiveStruct = () => (
     </div>
     <div style={{display:'grid',gridTemplateColumns:'repeat(5,1fr)',gap:14,marginTop:22,flex:1}}>
       {[['무엇을·왜','결론부터, 10초 안에'],['구성요소·관계·흐름','다이어그램으로'],
-        ['사용법(API)+동작','코드 설명'],['대안 비교','‘왜’의 근거'],['데이터로 증명','기술 부채·개선']].map(([a,b],i)=>(
+        ['핵심 동작','코드·규칙 + 내 설명'],['대안 비교','‘왜’의 근거'],['겪은 일→알게 된 것','다음에는']].map(([a,b],i)=>(
         <div key={i} className="card" style={{padding:'18px 16px'}}>
           <div style={{fontSize:15,fontWeight:800,color:'var(--indigo)'}}>STEP {i+1}</div>
           <div style={{marginTop:10,fontSize:18,fontWeight:700,color:'var(--ink)',lineHeight:1.35}}>{a}</div>
@@ -532,7 +532,7 @@ const FiveStruct = () => (
       ))}
     </div>
     <div style={{marginTop:22,background:'var(--indigo-soft)',borderRadius:12,padding:'16px 22px',fontSize:19,color:'var(--indigo-deep)'}}>
-      목적은 <b>“코드를 짤 줄 안다”</b>가 아니라 <b>“내 코드를 설명할 줄 안다”</b> = 함께 일할 수 있다.
+      유형을 고르지 않습니다 — 이 <b>뼈대</b>에 결론 앞 <b>AI 협업</b> 절을 두고, 팀이면 개요 뒤에 <b>[팀]</b>을 붙입니다. 직군을 가르지 않습니다.
     </div>
   </div>
 );
@@ -540,7 +540,7 @@ const FiveStruct = () => (
 // 예시 헤더 (완성 문서 워크스루)
 const ExHead = ({sub,label}) => (
   <>
-    <Head eyebrow="Part 2 · 예시 — Crafting System" rlabel="완성 기술 문서 워크스루"/>
+    <Head eyebrow="Part 2 · 예시 — Crafting System" rlabel="완성 프로젝트 문서 워크스루"/>
     <div style={{display:'flex',alignItems:'center',gap:18,marginTop:22}}>
       <div className="title-lg">{sub}</div>
       <span className="pill">{label}</span>
@@ -551,7 +551,7 @@ const ExHead = ({sub,label}) => (
 // 08 예시: 개요
 const ExOverview = () => (
   <div className="slide" style={{padding:'52px 72px',display:'flex',flexDirection:'column'}}>
-    <ExHead sub="① 개요" label="What / Why"/>
+    <ExHead sub="① 개요" label="무엇을 · 왜 · 목표한 경험"/>
     <div style={{display:'flex',gap:36,marginTop:26,flex:1}}>
       <div className="card" style={{flex:1,padding:'26px 30px'}}>
         {[['프로젝트','아이템 크래프팅 시스템'],['핵심 규칙','확률 성공 · 실패 시 재료 50% 소비 · 이벤트 전파'],
@@ -610,7 +610,7 @@ const DiagramNarrative = ({eyebrow,rlabel,title,label,img,imgStyle,steps}) => (
 // 09 예시: 시스템 구조 (클래스 다이어그램)
 const ExStructure = () => (
   <DiagramNarrative
-    eyebrow="Part 2 · 예시 — Crafting System" rlabel="완성 기술 문서 워크스루"
+    eyebrow="Part 2 · 예시 — Crafting System" rlabel="완성 프로젝트 문서 워크스루"
     title="② 시스템 구조" label="클래스 다이어그램"
     img="images/class.png"
     steps={[
@@ -692,12 +692,12 @@ const ExTradeoff = () => (
 // 12 예시: 회고 (문제/개선)
 const ExRetro = () => (
   <div className="slide" style={{padding:'52px 72px',display:'flex',flexDirection:'column'}}>
-    <ExHead sub="⑤ 결과 · 회고" label="Result / Retrospective"/>
+    <ExHead sub="⑤ 결론 · 회고" label="Retrospective"/>
     <div style={{display:'flex',gap:24,marginTop:26,flex:1}}>
       <div style={{flex:1,display:'flex',flexDirection:'column',gap:18}}>
         <div className="card" style={{padding:'22px 26px'}}>
           <div style={{fontSize:20,fontWeight:800,color:'var(--ok)'}}>✓ 달성</div>
-          <div style={{marginTop:10,fontSize:18,color:'var(--ink)'}}>UI/로직 분리 · 확률 경로 <b>테스트 100%</b> (roll 주입)</div>
+          <div style={{marginTop:10,fontSize:18,color:'var(--ink)'}}>UI 수정 <b>0줄</b>로 레시피 추가 · 확률 경로 <b>단위 테스트</b> (roll 주입)</div>
         </div>
         <div className="card" style={{padding:'22px 26px'}}>
           <div style={{fontSize:20,fontWeight:800,color:'var(--amber)'}}>△ 아쉬움</div>
@@ -711,9 +711,9 @@ const ExRetro = () => (
       <div className="card" style={{flex:1,padding:'28px 30px',background:'var(--indigo-soft)',border:'none',display:'flex',flexDirection:'column',justifyContent:'center'}}>
         <div style={{fontSize:22,fontWeight:800,color:'var(--indigo-deep)'}}>회고의 핵심</div>
         <div style={{marginTop:16,fontSize:19,color:'var(--ink)',lineHeight:1.7}}>
-          “잘 됐다”가 아니라 <b>데이터로 증명</b>하고,<br/>
-          남은 <b>기술 부채</b>와 <b>개선 방향</b>까지 쓴다.<br/><br/>
-          한계를 아는 것도 <b>실력의 증거</b>입니다.
+          “잘 됐다”가 아니라 <b>이 프로젝트에서 겪은 일</b>로 쓰고,<br/>
+          <b>알게 된 것</b>과 <b>다음에는</b>까지 쓴다.<br/><br/>
+          다른 문서에 붙여도 말이 되면 <b>일반론</b>입니다.
         </div>
       </div>
     </div>
@@ -722,8 +722,8 @@ const ExRetro = () => (
 
 // 14 레이아웃 3원칙 + 8유형
 const Layouts = () => {
-  const types=[['표지','첫인상','덱: 표지'],['목차','전체 지도','덱: 목차 · 장 표지'],['개요','What/Why','덱: 개요'],['다이어그램 중심 ★','구조 시각화','덱: 그림+번호 카드 · 큰 그림'],
-    ['코드+설명 2단','구현 증명','덱: 코드+설명 (20줄 안팎)'],['비교 ★','판단 근거','덱: 큰 표 (비교 · As-Is/To-Be)'],['타임라인','순서·흐름','덱: 그림+번호 카드'],['회고','정리·전망','덱: 회고 · 맺음']];
+  const types=[['표지','첫인상','슬라이드: 표지'],['목차','전체 지도','슬라이드: 목차 · 장 표지'],['개요','무엇을·왜','슬라이드: 개요'],['다이어그램 중심 ★','구조 시각화','슬라이드: 그림+번호 카드 · 큰 그림'],
+    ['코드+설명 2단','구현 증명','슬라이드: 코드+설명 (20줄 안팎)'],['비교 ★','판단 근거','슬라이드: 큰 표 (비교 · As-Is/To-Be)'],['타임라인','순서·흐름','슬라이드: 그림+번호 카드'],['회고','정리·전망','슬라이드: 회고 · 맺음']];
   return (
     <div className="slide" style={{padding:'52px 72px',display:'flex',flexDirection:'column'}}>
       <Head eyebrow="Part 3 · 레이아웃" rlabel="3원칙 + 8유형"/>
@@ -745,7 +745,7 @@ const Layouts = () => {
       <div style={{marginTop:20,fontSize:18,color:'var(--muted)'}}>
         ★ = 여러분의 <b style={{color:'var(--indigo)'}}>다이어그램이 가장 잘 사는</b> 레이아웃 ·
         실물 예시는 <span className="chip">React 쇼케이스</span>에서 ·{' '}
-        <b>발표 덱</b>: 8유형 + 화면 모음·문제 해결, <b>장면마다 시각 자료 1~2개</b>
+        <b>슬라이드</b>: 8유형 + 화면 모음·문제 해결, <b>장면마다 시각 자료 1~2개</b>
       </div>
     </div>
   );
@@ -855,22 +855,22 @@ const Closing = () => (
 /* ── Part 2 개념 상세 슬라이드 (KooHoo 원본 소스 기반) ── */
 const OverviewConcept = () => (
   <ConceptSlide
-    eyebrow="Part 2 · 기술 문서 상세" rlabel="① 개요"
+    eyebrow="Part 2 · 프로젝트 문서 상세" rlabel="① 개요"
     title="① 개요: 무엇을, 왜" pill="지도와 나침반"
     concept={<>
       <div className="lead">문서를 읽는 사람은 배경지식이 없습니다. 개요는 그 <b>정보 비대칭</b>을 해소하고 독자를 <b>'같은 출발선'</b>에 세웁니다. 결론부터 제시해 <b>10초 안에</b> 핵심이 잡혀야 합니다.</div>
-      <div className="kv"><div className="k">What · 지도</div><div className="v">지금부터 탐험할 <b>범위</b>를 보여줍니다. "이 문서는 게임 전체가 아니라 상태이상 시스템만 다룹니다."</div></div>
-      <div className="kv"><div className="k">Why · 나침반</div><div className="v">왜 이 지도를 펴는지 <b>문제와 가치</b>를 가리킵니다. "화염·냉기마다 코드가 중복돼 수정이 어려웠다."</div></div>
+      <div className="kv"><div className="k">무엇을 · 지도</div><div className="v">지금부터 탐험할 <b>범위</b>를 보여줍니다. "이 문서는 게임 전체가 아니라 상태이상 시스템만 다룹니다."</div></div>
+      <div className="kv"><div className="k">왜 · 나침반</div><div className="v">왜 이 지도를 펴는지 <b>문제와 가치</b>를 가리킵니다. "화염·냉기마다 코드가 중복돼 수정이 어려웠다."</div></div>
     </>}
     metaphor={{title:'개요 = 퀘스트 로그', body:<>지금 <b>어디서 무엇을 왜</b> 하는지 한눈에 알려주는 것. 독자가 흥미를 느끼면 Best.</>}}
     bad={['"인벤토리 시스템을 만들었습니다. List로 추가·삭제·사용을 구현했습니다."','→ <b>왜</b> 만들었나? List를 <b>왜</b>? 필요성·중요도를 전혀 알 수 없음']}
-    good={['<b>What</b> — 오브젝트 풀링(Object Pooling) 도입','<b>Why</b> — Instantiate/Destroy의 GC 과부하','<b>증거</b> — 보스전 초당 100발, Galaxy S10에서 10~15fps 드랍','<b>범위</b> — PoolManager 설계·핵심 코드·성능 비교']}
-    tip={<>개요는 <b>맨 마지막에 다시 쓰세요</b> — 다 쓰고 나면 하려던 말이 명확해집니다. · "느리다" 대신 <b>"로딩 15초"</b>처럼 측정 가능한 문제로. · 스스로 <b>"So What?"</b>을 반복해 표면적 What에서 근본 Why로.</>}
+    good={['<b>무엇을</b> — 오브젝트 풀링(Object Pooling) 도입','<b>왜</b> — Instantiate/Destroy의 GC 과부하','<b>증거</b> — 보스전 초당 100발, Galaxy S10에서 10~15fps 드랍','<b>목표한 경험</b> — 탄막 속에서도 끊김 없이 피하는 손맛']}
+    tip={<>개요는 <b>맨 마지막에 다시 쓰세요</b> — 다 쓰고 나면 하려던 말이 명확해집니다. · "느리다" 대신 <b>"로딩 15초"</b>처럼 측정 가능한 문제로. · 스스로 <b>"So What?"</b>을 반복해 표면적 ‘무엇을’에서 근본 ‘왜’로. · "What"·"Why"는 소제목으로 쓰지 말고 <b>글 안에</b>.</>}
   />
 );
 const StructureConcept = () => (
   <ConceptSlide
-    eyebrow="Part 2 · 기술 문서 상세" rlabel="② 시스템 구조"
+    eyebrow="Part 2 · 프로젝트 문서 상세" rlabel="② 시스템 구조"
     title="② 시스템 구조: 어떻게 조립됐나" pill="관심사의 분리"
     concept={<>
       <div className="lead"><b>코드를 한 줄도 안 보여주고도</b> 독자가 전체 동작을 이해하게 만드는 섹션. Tech Stack 나열이 아니라, 부품이 어떻게 조립됐는지 보이는 <b>설계도</b>입니다.</div>
@@ -886,22 +886,22 @@ const StructureConcept = () => (
 );
 const FeatureConcept = () => (
   <ConceptSlide
-    eyebrow="Part 2 · 기술 문서 상세" rlabel="③ 핵심 기능·사용법"
-    title="③ 핵심 기능: 어떻게 동작·사용하나" pill="증거와 사용법"
+    eyebrow="Part 2 · 프로젝트 문서 상세" rlabel="③ 핵심 기능"
+    title="③ 핵심 기능: 어떻게 동작하나" pill="증거와 설명"
     concept={<>
-      <div className="lead">구조가 '설계도'였다면 여기는 <b>시공 매뉴얼 + 사용법</b>. 독자가 이 섹션만 읽고도 기능을 즉시 쓰거나 테스트할 수 있어야 합니다.</div>
-      <div className="kv"><div className="k">핵심 동작</div><div className="v">1000줄 다 보여주면 최악. "아하!"가 오는 <b>핵심 50줄</b>만 선별 (발표 덱 한 장면은 20줄 안팎)</div></div>
-      <div className="kv"><div className="k">사용법(API)</div><div className="v">어떤 함수를 호출하고, 무엇을 입력하면 무엇이 나오는지</div></div>
+      <div className="lead">구조가 '설계도'였다면 여기는 <b>시공 기록</b>. 핵심 코드(또는 규칙·수치)와 <b>내 설명</b>으로 설계대로 지었다는 증거를 보입니다.</div>
+      <div className="kv"><div className="k">핵심 동작</div><div className="v">1000줄 다 보여주면 최악. "아하!"가 오는 <b>핵심 50줄</b>만 선별 (슬라이드 한 장면은 20줄 안팎)</div></div>
+      <div className="kv"><div className="k">쓰는 쪽</div><div className="v">(있으면 좋음) 무엇을 호출하면 무엇이 나오는지 · 문제 해결 사례는 이 기능 안에</div></div>
     </>}
-    metaphor={{title:'에어프라이어 설명서', body:<>50페이지 <b>회로도 전체</b>(코드 500줄)도, "전원 누르면 됨"(설명 부족)도 아님. <b>빠른 사용법 + 핵심 동작 원리</b>가 좋은 설명서.</>}}
+    metaphor={{title:'에어프라이어 설명서', body:<>50페이지 <b>회로도 전체</b>(코드 500줄)도, "전원 누르면 됨"(설명 부족)도 아님. <b>핵심 동작 원리</b>를 짚고 필요하면 빠른 사용법을 곁들이는 것이 좋은 설명서.</>}}
     bad={['<b>코드만 500줄 나열</b> — "InventoryManager.cs는 다음과 같습니다…"','→ 어디가 중요한지·왜 이렇게 짰는지·어떻게 쓰는지 <b>정보 0</b>. 해석 부담을 독자에게 전가']}
-    good={['<b>사용법</b> — InventoryManager.Instance.UseItem(slot)','<b>핵심 로직</b> — 아이템 타입 switch → 타입별 실행','<b>(Why)</b> if 아닌 switch: 새 타입 추가에도 확장 쉬움','<b>예외</b> — item==null 방어 코드까지 설명']}
+    good={['<b>핵심 로직</b> — 아이템 타입 switch → 타입별 실행','<b>이유</b> — if 아닌 switch: 새 타입 추가에도 확장 쉬움','<b>쓰는 쪽</b> — UseItem(slot) 하나만 호출','<b>예외</b> — item==null 방어 코드까지 설명']}
     tip={<>목적은 "코드를 짤 줄 안다"가 아니라 <b>"내 코드를 설명할 줄 안다"</b> = 개발 커뮤니케이션이 된다 = 함께 일할 수 있다. · 성공 케이스뿐 아니라 <b>예외·방어 코드</b>를 보여주면 전문가 인상.</>}
   />
 );
 const TradeoffConcept = () => (
   <ConceptSlide
-    eyebrow="Part 2 · 기술 문서 상세" rlabel="④ 고민과 선택"
+    eyebrow="Part 2 · 프로젝트 문서 상세" rlabel="④ 고민과 선택"
     title="④ 고민과 선택: 왜 이 방법인가" pill="정답이 아닌 최선"
     concept={<>
       <div className="lead">"왜 다른 방법이 아닌 <b>이 방법</b>인가"에 대한 논리적 변론. 정답 맞히기가 아니라 <b>얼마나 깊이 고민했는지</b>를 증명합니다. Coder와 Developer를 가르는 지점.</div>
@@ -916,16 +916,16 @@ const TradeoffConcept = () => (
 );
 const RetroConcept = () => (
   <ConceptSlide
-    eyebrow="Part 2 · 기술 문서 상세" rlabel="⑤ 결과·배운 점"
-    title="⑤ 결과·배운 점: 무엇을 배웠나" pill="사실 기록·경험 자산화"
+    eyebrow="Part 2 · 프로젝트 문서 상세" rlabel="⑤ 결론 — 회고"
+    title="⑤ 결론 — 회고: 무엇을 알게 됐나" pill="겪은 일 → 알게 된 것 → 다음에는"
     concept={<>
-      <div className="lead">"다 만들었다"는 선언이 아닙니다. 개요에서 세운 목표(Why)가 <b>달성됐는지 데이터로</b> 보이고, <b>배운 점</b>을 다음 사람이 쓸 수 있게 남깁니다.</div>
-      <div className="kv"><div className="k">결과</div><div className="v">목표 달성 여부를 <b>구체적 데이터(증거)</b>로 ("15초→3초")</div></div>
-      <div className="kv"><div className="k">배운 점</div><div className="v">문제 해결(Troubleshooting) · 아쉬운 점(<b>기술 부채</b>) · 개선 계획</div></div>
+      <div className="lead">"다 만들었다"는 선언이 아닙니다. 개요의 <b>목표한 경험이 어떻게 됐는지</b> 돌아보고, 이 프로젝트에서 <b>겪은 일 → 알게 된 것 → 다음에는</b>을 남깁니다.</div>
+      <div className="kv"><div className="k">목표 돌아보기</div><div className="v">목표한 경험이 어떻게 됐는지. 수치("15초→3초")는 <b>어떻게 확인했는지</b>와 함께. 확인 못 했으면 못 했다고</div></div>
+      <div className="kv"><div className="k">판정 질문</div><div className="v">"이 문장을 <b>다른 프로젝트 문서</b>에 붙여도 말이 되는가?" 되면 일반론</div></div>
     </>}
     metaphor={{title:'원정대 보고서', body:<>"황금 유적 발견(결과)" + "독사에 물림 — 해독제인 줄 알았는데 소화제(교훈)" + "임시 밧줄(<b>기술 부채</b>) → 다음엔 튼튼한 다리(개선)". 보고서가 없으면 <b>다음 원정대도 같은 재앙</b>.</>}}
     bad={['"오브젝트 풀링 적용해서 렉이 안 걸립니다."','→ "렉 안 걸림"은 주관적. 어떤 문제였고 뭘 배웠는지 <b>0</b>. 다음 사람에게 도움 0']}
-    good={['<b>결과(데이터)</b> — 보스전 60→15fps, 적용 후 58~60fps (프로파일러)','<b>Troubleshooting</b> — 반납 총알 오작동 → Velocity 미초기화가 원인','<b>기술 부채</b> — PoolManager가 특정 프리팹에 강결합','<b>개선</b> — 제네릭 PoolManager&lt;T&gt;로 리팩토링 계획']}
+    good={['<b>목표 돌아보기</b> — 보스전 60→15fps, 적용 후 58~60fps (프로파일러)','<b>겪은 일</b> — 반납 총알 오작동(기능 장의 문제 해결 사례)','<b>알게 된 것</b> — 반납 시 초기화 책임 · 풀이 총알 프리팹에 강결합','<b>개선</b> — 제네릭 PoolManager&lt;T&gt;로 리팩토링 계획']}
     tip={<>"빨라졌다"가 아니라 <b>"15초가 3초가 됐다"</b> — 감상이 아닌 측정. · <b>"아쉬운 점 없습니다"는 0점.</b> 기술 부채를 인지하고 개선을 제시하는 사람이 성장 가능성을 인정받습니다.</>}
   />
 );
@@ -965,7 +965,7 @@ const ThemeGuide = () => (
     <div className="title-lg" style={{fontSize:30,marginTop:12}}>테마는 <span style={{color:'var(--indigo)'}}>3색·2폰트</span> 안에서</div>
     <div className="concept lead" style={{marginTop:10}}>테마는 취향이 아니라 <b>목적</b>에 맞춰 고릅니다. 아래 3가지 안에서 하나를 정하고, 문서 전체를 통일하세요.</div>
     <div style={{display:'grid',gridTemplateColumns:'1fr 1fr 1fr',gap:16,marginTop:16}}>
-      <ThemeSwatch name="미니멀 (권장)" use="대부분의 기술 문서" bg="#ffffff" text="#1f2328" accent="#5B6AD0"/>
+      <ThemeSwatch name="미니멀 (권장)" use="대부분의 프로젝트 문서" bg="#ffffff" text="#1f2328" accent="#5B6AD0"/>
       <ThemeSwatch name="다크 코드" use="코드 스니펫이 많은 문서" bg="#1E2138" text="#E6E8F5" accent="#8B95E4" code/>
       <ThemeSwatch name="브랜드" use="포트폴리오·게임 (본문은 미니멀)" bg="linear-gradient(135deg,#EEF0FB,#DDE3FA)" text="#3E4CAB" accent="#5B6AD0"/>
     </div>
@@ -1036,7 +1036,7 @@ const AIConcept = () => (
     concept={<>
       <div className="lead">AI는 문서를 <b>대신 써주는 게 아닙니다.</b> 여러분이 아는 것을 <b>정리하는 속도</b>를 높여줍니다. 이미 이해한 것을 정리할 때 가장 강력합니다.</div>
       <div className="kv"><div className="k">할 수 있음</div><div className="v">초안·다이어그램 코드·문장 다듬기의 <b>속도</b></div></div>
-      <div className="kv"><div className="k">못 하는 것</div><div className="v"><b>"왜(Why)"</b> — 내 실제 의사결정은 AI가 채울 수 없음</div></div>
+      <div className="kv"><div className="k">못 하는 것</div><div className="v"><b>"왜"</b> — 내 실제 의사결정은 AI가 채울 수 없음</div></div>
     </>}
     metaphor={{title:'조수(어시스턴트)', body:<>요리사는 <b>나</b>, AI는 재료를 빠르게 손질하는 보조. 맛(판단)을 내는 건 여전히 나입니다.</>}}
     bad={['AI가 쓴 <b>매끄러운 일반론</b>을 그대로 붙여넣기','존재하지 않는 API·메서드를 검증 없이 삽입','"고민과 선택"을 AI에게 <b>대신</b> 시킴']}
@@ -1048,7 +1048,7 @@ const PromptSteps = () => {
   const steps=[
     {t:'① 기능 설명 (내 입력)', b:`유니티 C#으로 만든 크래프팅 시스템을 설명할게. 재료를 소비해 아이템을 제작하고, 레시피마다 성공 확률이 있어. 실패하면 재료를 절반만 소비해. 클래스는 Manager·Inventory·Recipe·UI가 있고, 결과는 이벤트로 UI에 전달돼.`, g:'AI가 내 설명을 구조화해 이해'},
     {t:'② 다이어그램 요청', b:`방금 설명한 클래스 관계를 Mermaid 클래스 다이어그램으로 그려줘. Manager는 ICraftingService를 구현하고, UI는 구현체가 아니라 인터페이스에 의존하게 해줘(DIP).`, g:'Mermaid 클래스 다이어그램 코드'},
-    {t:'③ 문서 초안 요청', b:`이 크래프팅 시스템의 기술 문서를 '개요 → 시스템 구조 → 핵심 기능 → 고민과 선택 → 결과' 순서로 써줘. 각 항목에 뭘 채워야 할지 틀을 잡아줘.`, g:'5단 구조 문서 뼈대'},
+    {t:'③ 문서 초안 요청', b:`이 크래프팅 시스템의 프로젝트 문서 틀을 '개요 → 시스템 구조 → 핵심 기능 → 고민과 선택 → AI 협업 → 결론(회고)' 순서로 잡아줘. 각 항목에 뭘 채워야 할지 질문으로 적어줘.`, g:'프로젝트 문서 뼈대'},
   ];
   return (
     <div className="slide" style={{padding:'40px 56px',display:'flex',flexDirection:'column'}}>
@@ -1100,14 +1100,14 @@ const PromptConcept = () => (
     title="역할 + 맥락 + 제약 + 형식" pill="4요소"
     concept={<>
       <div className="lead">좋은 프롬프트엔 4가지가 들어갑니다. 이 넷을 채우면 결과가 <b>의도에 훨씬 가깝게</b> 나옵니다.</div>
-      <div className="kv"><div className="k">역할</div><div className="v">AI에게 어떤 전문가처럼 굴지 ("너는 기술 문서 디자이너야")</div></div>
+      <div className="kv"><div className="k">역할</div><div className="v">AI에게 어떤 전문가처럼 굴지 ("너는 프로젝트 문서 디자이너야")</div></div>
       <div className="kv"><div className="k">맥락</div><div className="v">무엇을, 누구를 위해 만드는지</div></div>
       <div className="kv"><div className="k">제약</div><div className="v">지켜야 할 조건 (미니멀·3색·50줄 이하)</div></div>
       <div className="kv"><div className="k">형식</div><div className="v">어떤 형태로 답할지 (코드블록으로만)</div></div>
     </>}
     metaphor={{title:'외주 발주서', body:<>두루뭉술하면 엉뚱한 결과가, <b>구체적</b>이면 의도대로 옵니다. 프롬프트는 AI에게 주는 발주서입니다.</>}}
     bad={['"크래프팅 슬라이드 만들어줘"','→ 역할·맥락·형식을 몰라 <b>제멋대로</b> 만듦']}
-    good={['<b>역할</b> — 너는 기술 문서 디자이너야','<b>맥락</b> — 크래프팅 시스템 발표 표지','<b>제약</b> — 미니멀·중앙정렬·프로젝트명 크게','<b>형식</b> — Marp 코드블록으로만 답해줘']}
+    good={['<b>역할</b> — 너는 프로젝트 문서 디자이너야','<b>맥락</b> — 크래프팅 시스템 발표 표지','<b>제약</b> — 미니멀·중앙정렬·프로젝트명 크게','<b>형식</b> — Marp 코드블록으로만 답해줘']}
     tip={<>첫 결과가 완벽할 필요 없습니다. <b>"여기는 이렇게 바꿔줘"</b>로 다듬는 게 정상 흐름 — 이 반복이 곧 실무입니다.</>}
   />
 );
@@ -1116,7 +1116,7 @@ const PromptGallery = () => (
     <Head eyebrow="Part 6 · 프롬프트" rlabel="복붙용 프롬프트 갤러리"/>
     <div className="title-lg" style={{fontSize:30,marginTop:12}}>세 트랙, <span style={{color:'var(--indigo)'}}>바로 쓰는</span> 프롬프트</div>
     <div style={{display:'grid',gridTemplateColumns:'1fr 1fr 1fr',gap:16,marginTop:18,flex:1}}>
-      <PromptCard title="A · Marp 슬라이드" body={`너는 기술 문서 디자이너야. Marp로 "[시스템 구조]" 슬라이드 1장을 만들어줘. 화면 대부분을 다이어그램 이미지가 차지하고, 아래에 핵심 캡션 한 줄만. 코드 블록으로만 답해줘.`}/>
+      <PromptCard title="A · Marp 슬라이드" body={`너는 프로젝트 문서 디자이너야. Marp로 "[시스템 구조]" 슬라이드 1장을 만들어줘. 화면 대부분을 다이어그램 이미지가 차지하고, 아래에 핵심 캡션 한 줄만. 코드 블록으로만 답해줘.`}/>
       <PromptCard title="B · React 포트폴리오" body={`단일 HTML(React CDN + Tailwind CDN)로 프로젝트 상세 페이지를 만들어줘. 개요/구조/기능/회고 섹션. 깔끔·절제, 3색 이내, 반응형. 하나의 .html로만 답해줘.`}/>
       <PromptCard title="C · Mermaid 다이어그램" body={`다음 관계를 Mermaid classDiagram으로 그려줘. Manager는 ICraftingService를 구현, UI는 인터페이스에 의존(..>). 필드·메서드도 넣고, 코드 블록으로만 답해줘.`}/>
     </div>
@@ -1156,7 +1156,7 @@ const SLIDES = [
   {c:SkillWriting, sec:'Part 1'},
   {c:StarTemplate, sec:'Part 1'},
   {c:ResumeChecklist, sec:'Part 1'},
-  {c:()=><Divider part="PART 2" title={"기술 문서"} agenda={{label:'5단 구조',items:['개요','시스템 구조','핵심 기능','고민과 선택','결과·회고']}}/>, sec:'Part 2'},
+  {c:()=><Divider part="PART 2" title={"프로젝트 문서"} agenda={{label:'5단 구조',items:['개요','시스템 구조','핵심 기능','고민과 선택','결론·회고']}}/>, sec:'Part 2'},
   {c:FiveStruct, sec:'Part 2'},
   {c:OverviewConcept, sec:'Part 2 · 개요'},
   {c:ExOverview, sec:'Part 2 · 개요'},
